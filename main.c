@@ -1,6 +1,6 @@
 /*
 Nomes:  Allan Carneiro da Cunha Silveira
-        isadora
+        Isadora Voss Brugnera
         jenifer
 Data: 2025-09-08
 Descrição: Criar um sistema em linguagem C para gerenciamento de numero de fogo em pneus de um caminhão
