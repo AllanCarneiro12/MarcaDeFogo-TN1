@@ -1,12 +1,11 @@
 # Comandos em Git
 
 ## `git init`
-Inicializa um repositorio git na pasta selecionada
+Inicializa um repositório git na pasta selecionada
 
-#### `git init -b main`
-inicializa um repositorio na pasta e renomeia a branch princial para "main" (convenção)
+`git init -b main` inicializa um repositório na pasta e renomeia a branch principal para "main" (convenção)
 
-caso tenha inicado o git sem renomear a branch para "main", pode-se usar do comando `git branch -m main`
+caso tenha iniciado o git sem renomear a branch para "main", pode-se usar do comando `git branch -m main`
 
 ## `git config`
 configura o git com informações do usuário, é necessário configurar o nome e email do usuário para que os commits sejam atribuídos corretamente
@@ -19,13 +18,13 @@ o parametro `--global` pode ser alterado para:
 - `--local`: aplica a configuração apenas para o repositório na pasta atual (padrão)
 
 ## `git remote add origin <link/caminho>`
-adiciona um repositorio remoto (por muitas vezes o github) e nomeia como "origin" (convenção)
+adiciona um repositório remoto (por muitas vezes o github) e nomeia como "origin" (convenção)
 
 ## `git clone <link/caminho>`
 clona um repositório remoto (por muitas vezes o github) para o diretório local
 
 ## `git add <arquivos>`
-adiciona arquivos à serem armazenados/"trackeados" pelo repositorio git 
+adiciona arquivos a serem armazenados/"trackeados" pelo repositório git 
 
 `git add .` adiciona todos os arquivos da pasta atual e subpastas para serem "trackeados" pelo git
 
@@ -45,7 +44,7 @@ mostra o histórico de commits do repositório
 `git log --oneline` mostra o histórico de commits em uma linha por commit, facilitando a visualização
 
 ## `git push -u origin main`
-envia os commits locais para o repositorio remoto "origin" na branch "main"
+envia os commits locais para o repositório remoto "origin" na branch "main"
 o `-u` serve para definir a branch "main" e o repositório "origin" como padrão para futuros pushes, assim não sendo necessário especificar o repositório e a branch toda vez
 
 ## `git pull origin main`
