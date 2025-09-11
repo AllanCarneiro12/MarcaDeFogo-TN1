@@ -56,5 +56,24 @@ int main()
     system("cls || clear");
     printf("Sistema acessado.\n");
 
+    printf("Qual eixo será? \n 1)TRUCK\n 2)TOCO \n 3)CARRETA\n");
+    int eixo;
+    scanf("%d",&eixo);
+    
+    switch(eixo){
+        case 1:
+            printf("Eixo TRUCK selecionado.\n");
+            break;
+        case 2:
+            printf("Eixo TOCO selecionado.\n");
+            break;
+        case 3:
+            printf("Eixo CARRETA selecionado.\n");
+            break;
+        default:
+            printf("Eixo inválido.\n");
+            break;
+    }
+    
     return 0;
 }
