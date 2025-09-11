@@ -8,6 +8,16 @@ inicializa um repositorio na pasta e renomeia a branch princial para "main" (con
 
 caso tenha inicado o git sem renomear a branch para "main", pode-se usar do comando `git branch -m main`
 
+## `git config`
+configura o git com informações do usuário, é necessário configurar o nome e email do usuário para que os commits sejam atribuídos corretamente
+
+`git config --global user.name "Seu Nome"` define o nome do usuário globalmente (para todos os repositórios)
+`git config --global user.email "seuemail@exemplo.com"` define o email do usuário globalmente (para todos os repositórios)
+
+o parametro `--global` pode ser alterado para:
+- `--system`: aplica a configuração para todos os usuários do sistema
+- `--local`: aplica a configuração apenas para o repositório na pasta atual (padrão)
+
 ## `git remote add origin <link/caminho>`
 adiciona um repositorio remoto (por muitas vezes o github) e nomeia como "origin" (convenção)
 
