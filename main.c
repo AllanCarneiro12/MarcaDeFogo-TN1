@@ -30,6 +30,48 @@ disposição dos pneus.
 #define LOGIN "uniavan"
 #define SENHA "123"
 
+struct Truck
+{
+    int pneuDianteiroEsquerdo;
+    int pneuDianteiroDireito;
+    int pneuTraseiroExternoEsquerdo1;
+    int pneuTraseiroInternoEsquerdo1;
+    int pneuTraseiroInternoDireito1;
+    int pneuTraseiroExternoDireito1;
+    int pneuTraseiroExternoEsquerdo2;
+    int pneuTraseiroInternoEsquerdo2;
+    int pneuTraseiroInternoDireito2;
+    int pneuTraseiroExternoDireito2;
+
+    int pneus[3][4];
+};
+
+struct Toco
+{
+    int pneuDianteiroEsquerdo;
+    int pneuDianteiroDireito;
+    int pneuTraseiroExternoEsquerdo;
+    int pneuTraseiroInternoEsquerdo;
+    int pneuTraseiroInternoDireito;
+    int pneuTraseiroExternoDireito;
+
+    int pneus[2][4];
+};
+
+struct Carreta
+{
+    int pneuTraseiroExternoEsquerdo1;
+    int pneuTraseiroInternoEsquerdo1;
+    int pneuTraseiroInternoDireito1;
+    int pneuTraseiroExternoDireito1;
+    int pneuTraseiroExternoEsquerdo2;
+    int pneuTraseiroInternoEsquerdo2;
+    int pneuTraseiroInternoDireito2;
+    int pneuTraseiroExternoDireito2;
+
+    int pneus[2][4];
+};
+
 int main()
 {
     system("cls || clear");
