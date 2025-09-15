@@ -1,7 +1,7 @@
 /*
 Nomes:  Allan Carneiro da Cunha Silveira
         Isadora Voss Brugnera
-        jenifer
+        Jenifer Beatriz Nunes Ribeiro
 Data: 2025-09-08
 Projeto de Algoritmos 2
 Descrição: Criar um sistema em linguagem C para gerenciamento de numero de fogo em pneus de um caminhão
