@@ -29,7 +29,7 @@ disposição dos pneus.
 // login e senha de acesso ao sistema
 #define LOGIN "uniavan"
 #define SENHA "123"
-//Eu acho que o struct pode ser bom pra fazer o menu
+// Eu acho que o struct pode ser bom pra fazer o menu
 struct Truck
 {
     int pneuDianteiroEsquerdo;
@@ -100,68 +100,68 @@ int main()
 
     printf("Qual eixo será? \n 1)TRUCK\n 2)TOCO \n 3)CARRETA\n");
     int eixo;
-    scanf("%d",&eixo);
-    
-    switch(eixo){
-        case 1:
-            printf("Eixo TRUCK selecionado.\n");
-            break;
-        case 2:
-            printf("Eixo TOCO selecionado.\n");
-            break;
-        case 3:
-            printf("Eixo CARRETA selecionado.\n");
-            break;
-        default:
-            printf("Eixo inválido.\n");
-            break;
-    }
-//Será que precisa colocar isso dentro do struct? ou só assim funciona?
-//Ou tem que colocar o apelido e colocar no scanf;
-if(eixo == 1){
-printf("Digite o numero do Pneu Dianteiro Esquerdo: ")//[0][0]
-scanf("%d", &pneuDianteiroEsquerdo);
-printf("Digite o numero do Pneu Dianteiro Direito: ")//[0][4]
-scanf("%d", &pneuDianteiroDireito);
-printf("Digite o numero do Pneu Traseiro Externo Esquerdo 1: ")//[1][1]
-scanf("%d", &pneuTraseiroExternoEsquerdo1;);
-printf("Digite o numero do Pneu Traseiro Interno Esquerdo 1: ")//[1][2]
-scanf("%d", & pneuTraseiroInternoEsquerdo1);
-printf("Digite o numero do Pneu Traseiro Interno Direito 1: ")//[1][3]
-scanf("%d", &pneuTraseiroInternoDireito1);
-printf("Digite o numero do Pneu Traseiro Externo Direito 1: ")//[1][4]
-scanf("%d", &pneuTraseiroExternoDireito1);
-printf("Digite o numero do Pneu Traseiro Externo Esquerdo 2: ")//[2][1]
-scanf("%d", &pneuTraseiroExternoEsquerdo2);
-printf("Digite o numero do Pneu Traseiro Interno Esquerdo 2: ")//[2][2]
-scanf("%d", &pneuTraseiroInternoEsquerdo2);
-printf("Digite o numero do Pneu Traseiro Interno Direito 2: ")//[2][3]
-scanf("%d", &pneuTraseiroInternoDireito2);
-printf("Digite o numero do Pneu Traseiro Externo Direito 2: ")//[2][4]
-scanf("%d", &pneuTraseiroExternoDireito2);
+    scanf("%d", &eixo);
 
-}
-
-//Ou dava pra tentar assim:
-/*0 1 2 3
-4 5 6 7
-8 9 10 11*/
-if(eixo == 1)
-{
-    int truck [3][4];
-    int i, j;
-    for(i=0; i<3; i++)
+    switch (eixo)
     {
-        for(j=0; j<4; j++)
+    case 1:
+        printf("Eixo TRUCK selecionado.\n");
+        break;
+    case 2:
+        printf("Eixo TOCO selecionado.\n");
+        break;
+    case 3:
+        printf("Eixo CARRETA selecionado.\n");
+        break;
+    default:
+        printf("Eixo inválido.\n");
+        break;
+    }
+    // Será que precisa colocar isso dentro do struct? ou só assim funciona?
+    // Ou tem que colocar o apelido e colocar no scanf;
+    if (eixo == 1)
+    {
+        struct Truck trucado;
+        printf("Digite o numero do Pneu Dianteiro Esquerdo: "); //[0][0]
+        scanf("%d", &trucado.pneuDianteiroEsquerdo);
+        printf("Digite o numero do Pneu Dianteiro Direito: "); //[0][3]
+        scanf("%d", &trucado.pneuDianteiroDireito);
+        printf("Digite o numero do Pneu Traseiro Externo Esquerdo 1: "); //[1][0]
+        scanf("%d", &trucado.pneuTraseiroExternoEsquerdo1);
+        printf("Digite o numero do Pneu Traseiro Interno Esquerdo 1: "); //[1][1]
+        scanf("%d", &trucado.pneuTraseiroInternoEsquerdo1);
+        printf("Digite o numero do Pneu Traseiro Interno Direito 1: "); //[1][2]
+        scanf("%d", &trucado.pneuTraseiroInternoDireito1);
+        printf("Digite o numero do Pneu Traseiro Externo Direito 1: "); //[1][3]
+        scanf("%d", &trucado.pneuTraseiroExternoDireito1);
+        printf("Digite o numero do Pneu Traseiro Externo Esquerdo 2: "); //[2][0]
+        scanf("%d", &trucado.pneuTraseiroExternoEsquerdo2);
+        printf("Digite o numero do Pneu Traseiro Interno Esquerdo 2: "); //[2][1]
+        scanf("%d", &trucado.pneuTraseiroInternoEsquerdo2);
+        printf("Digite o numero do Pneu Traseiro Interno Direito 2: "); //[2][2]
+        scanf("%d", &trucado.pneuTraseiroInternoDireito2);
+        printf("Digite o numero do Pneu Traseiro Externo Direito 2: "); //[2][3]
+        scanf("%d", &trucado.pneuTraseiroExternoDireito2);
+    }
+
+    // Ou dava pra tentar assim:
+    /*0 1 2 3
+    4 5 6 7
+    8 9 10 11*/
+    if (eixo == 1)
+    {
+        int truck[3][4];
+        int i, j;
+        for (i = 0; i < 3; i++)
         {
-            printf("Digite o numero dos pneus da frente:");
-            scanf("%d", truck[0][0]);
-            scanf("%d", truck[0][4]);
+            for (j = 0; j < 4; j++)
+            {
+                printf("Digite o numero dos pneus da frente:");
+                scanf("%d", truck[0][0]);
+                scanf("%d", truck[0][4]);
+            }
         }
     }
-}
-    
-
 
     return 0;
 }
