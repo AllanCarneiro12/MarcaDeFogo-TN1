@@ -148,18 +148,100 @@ int main()
         scanf("%d", &trucado.pneus[2][3]);
 
         system("cls || clear");
+        /*
+                for (int i = 0; i < 3; i++)
+                 {
+                     for (int j = 0; j < 4; j++)
+                     {
+                         printf("Digite o numero dos pneus da frente:");
+                         scanf("%d", &trucado.pneus[0][0]);
+                        // scanf("%d", &trucado.pneus[0][1]);
+                        // scanf("%d", &trucado.pneus[0][2]);
+                         scanf("%d", &trucado.pneus[0][3]);
+                     }
+                 }
+        */
+    }
+    else if (eixo == 2)
+    {
+        struct Toco caminhaoToco;
 
-        // for (int i = 0; i < 3; i++)
-        // {
-        //     for (int j = 0; j < 4; j++)
-        //     {
-        //         printf("Digite o numero dos pneus da frente:");
-        //         scanf("%d", &trucado.pneus[0][0]);
-        //         scanf("%d", &trucado.pneus[0][1]);
-        //         scanf("%d", &trucado.pneus[0][2]);
-        //         scanf("%d", &trucado.pneus[0][3]);
-        //     }
-        // }
+        printf("Digite a placa do caminhão: ");
+        scanf("%d", &caminhaoToco.placa);
+
+        printf("Digite o numero do pneu dianteiro esquerdo: ");
+        scanf("%d", &caminhaoToco.pneus[0][0]);
+        printf("Digite o numero do pneu dianteiro direito: ");
+        scanf("%d", &caminhaoToco.pneus[0][3]);
+
+        printf("Digite o numero do pneu traseiro externo esquerdo: ");
+        scanf("%d", &caminhaoToco.pneus[1][0]);
+        printf("Digite o numero do pneu traseiro interno esquerdo: ");
+        scanf("%d", &caminhaoToco.pneus[1][1]);
+
+        printf("Digite o numero do pneu traseiro interno direito: ");
+        scanf("%d", &caminhaoToco.pneus[1][2]);
+        printf("Digite o numero do pneu traseiro externo direito: ");
+        scanf("%d", &caminhaoToco.pneus[1][3]);
+
+        system("cls || clear");
+    }
+
+    int menu;
+
+    printf("\nMenu:\n");
+    printf("1. Mostrar pneus\n");
+    printf("2. Rodizio de pneus\n");
+    printf("3. Sair\n");
+    printf("Escolha uma opicao: ");
+    scanf("%d", &menu);
+
+    if (menu == 1) // Para verificar qual opção de caminhão foi escolhida
+    {
+        struct Truck trucado;
+
+        printf("\nListagem dos pneus: \n");
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+            {
+                if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
+                {                                            //  caminhão truck há duas posições na dianteira vazias.
+                    printf("[%d] ", trucado.pneus[i][j]);
+                }
+                else
+                {
+                    printf("[  ] "); // Imprimindo as posições vazias.
+                }
+            }
+            printf("\n");
+        }
+    }
+    else if (menu == 1) // Mesma lógica do anterior, só que para opção Toco.
+    { 
+        if (eixo == 2) // Na hora de compilar a listagem do toco ele adiciona uma terceira linha, não sei por que :(.
+        {
+            struct Toco caminhaoToco;
+
+            printf("\nListagem dos pneus: \n");
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if ((i == 0 && (j == 0 || j == 3)) || i == 1)
+                    {
+                        printf("[%d] ", caminhaoToco.pneus[i][j]);
+                    }
+                    else
+                    {
+                        printf("[  ] ");
+                    }
+                }
+                printf("\n");
+            }
+        }
     }
 
     return 0;
