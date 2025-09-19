@@ -189,60 +189,68 @@ int main()
 
     int menu;
 
-    printf("\nMenu:\n");
-    printf("1. Mostrar pneus\n");
-    printf("2. Rodizio de pneus\n");
-    printf("3. Sair\n");
-    printf("Escolha uma opicao: ");
-    scanf("%d", &menu);
-
-    if (menu == 1) // Para verificar qual opção de caminhão foi escolhida
+    do
     {
-        struct Truck trucado;
 
-        printf("\nListagem dos pneus: \n");
+        printf("Menu:\n");
+        printf("1. Mostrar pneus\n");
+        printf("2. Rodizio de pneus\n");
+        printf("0. Sair\n");
+        printf("Escolha uma opicao: ");
+        scanf("%d", &menu);
+        system("cls || clear");
 
-        for (int i = 0; i < 3; i++)
+        if (menu == 1) // Para verificar qual opção de caminhão foi escolhida
         {
-            for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+            if (eixo == 1) // Se for truck ele entra nesse if
             {
-                if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
-                {                                            //  caminhão truck há duas posições na dianteira vazias.
-                    printf("[%d] ", trucado.pneus[i][j]);
-                }
-                else
+                struct Truck trucado;
+
+                printf("Listagem dos pneus: \n");
+
+                for (int i = 0; i < 3; i++)
                 {
-                    printf("[  ] "); // Imprimindo as posições vazias.
+                    for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+                    {
+                        if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
+                        {                                            //  caminhão truck há duas posições na dianteira vazias.
+                            printf("[%5d] ", trucado.pneus[i][j]);
+                        }
+                        else
+                        {
+                            printf("[-----] "); // Imprimindo as posições vazias.
+                        }
+                    }
+                    printf("\n");
                 }
             }
-            printf("\n");
-        }
-    }
-    else if (menu == 1) // Mesma lógica do anterior, só que para opção Toco.
-    { 
-        if (eixo == 2) // Na hora de compilar a listagem do toco ele adiciona uma terceira linha, não sei por que :(.
-        {
-            struct Toco caminhaoToco;
-
-            printf("\nListagem dos pneus: \n");
-
-            for (int i = 0; i < 2; i++)
+            else if (eixo == 2) // Mesma lógica do anterior, só que para opção Toco.
             {
-                for (int j = 0; j < 4; j++)
+                struct Toco caminhaoToco;
+
+                printf("\nListagem dos pneus: \n");
+
+                for (int i = 0; i < 2; i++)
                 {
-                    if ((i == 0 && (j == 0 || j == 3)) || i == 1)
+                    for (int j = 0; j < 4; j++)
                     {
-                        printf("[%d] ", caminhaoToco.pneus[i][j]);
+                        if ((i == 0 && (j == 0 || j == 3)) || i == 1)
+                        {
+                            printf("[%5d] ", caminhaoToco.pneus[i][j]);
+                        }
+                        else
+                        {
+                            printf("[-----] ");
+                        }
                     }
-                    else
-                    {
-                        printf("[  ] ");
-                    }
+                    printf("\n");
                 }
-                printf("\n");
             }
         }
-    }
+
+    } while (menu != 0);
+
+    printf("Saindo do sistema...\n");
 
     return 0;
 }
