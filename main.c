@@ -29,7 +29,7 @@ disposição dos pneus.
 // login e senha de acesso ao sistema
 #define LOGIN "uniavan"
 #define SENHA "123"
-// Eu acho que o struct pode ser bom pra fazer o menu
+
 struct Truck
 {
     /*
@@ -61,8 +61,9 @@ struct Carreta
     todas as posições com 1 representam onde há pneus na matriz
     [1][1][1][1]
     [1][1][1][1]
+    [1][1][1][1]
     */
-    int pneus[2][4];
+    int pneus[3][4];
 
     char placa[8];
 };
@@ -93,27 +94,35 @@ int main()
     system("cls || clear");
     printf("Sistema acessado.\n");
 
-    printf("Qual eixo será? \n 1)TRUCK\n 2)TOCO \n 3)CARRETA\n");
+    // escolha do eixo
     int eixo;
-    scanf("%d", &eixo);
-
-    switch (eixo)
+    do
     {
-    case 1:
-        printf("Eixo TRUCK selecionado.\n");
-        break;
-    case 2:
-        printf("Eixo TOCO selecionado.\n");
-        break;
-    case 3:
-        printf("Eixo CARRETA selecionado.\n");
-        break;
-    default:
-        printf("Eixo inválido.\n");
-        break;
-    }
+        printf("Qual eixo será? \n 1)TRUCK\n 2)TOCO \n 3)CARRETA\n");
+        scanf("%d", &eixo);
+    
+        switch (eixo)
+        {
+        case 1:
+            system("cls || clear");
+            printf("Eixo TRUCK selecionado.\n");
+            break;
+        case 2:
+            system("cls || clear");
+            printf("Eixo TOCO selecionado.\n");
+            break;
+        case 3:
+            system("cls || clear");
+            printf("Eixo CARRETA selecionado.\n");
+            break;
+        default:
+            system("cls || clear");
+            printf("Eixo inválido.\n");
+            break;
+        }
+    } while (eixo < 1 || eixo > 3);
 
-    system("cls || clear");
+    // entrada dos pneus
     if (eixo == 1)
     {
         struct Truck trucado;
@@ -121,13 +130,11 @@ int main()
         printf("Digite a placa do caminhão:");
         scanf("%s", trucado.placa);
 
-        // entrada dos pneus dianteiros
         printf("Digite o numero do pneu dianteiro esquerdo:");
         scanf("%d", &trucado.pneus[0][0]);
         printf("Digite o numero do pneu dianteiro direito:");
         scanf("%d", &trucado.pneus[0][3]);
 
-        // entrada dos pneus traseiros 1
         printf("Digite o numero do pneu traseiro externo esquerdo 1:");
         scanf("%d", &trucado.pneus[1][0]);
         printf("Digite o numero do pneu traseiro interno esquerdo 1:");
@@ -137,7 +144,6 @@ int main()
         printf("Digite o numero do pneu traseiro externo direito 1:");
         scanf("%d", &trucado.pneus[1][3]);
 
-        // entrada dos pneus traseiros 2
         printf("Digite o numero do pneu traseiro externo esquerdo 2:");
         scanf("%d", &trucado.pneus[2][0]);
         printf("Digite o numero do pneu traseiro interno esquerdo 2:");
@@ -148,26 +154,13 @@ int main()
         scanf("%d", &trucado.pneus[2][3]);
 
         system("cls || clear");
-        /*
-                for (int i = 0; i < 3; i++)
-                 {
-                     for (int j = 0; j < 4; j++)
-                     {
-                         printf("Digite o numero dos pneus da frente:");
-                         scanf("%d", &trucado.pneus[0][0]);
-                        // scanf("%d", &trucado.pneus[0][1]);
-                        // scanf("%d", &trucado.pneus[0][2]);
-                         scanf("%d", &trucado.pneus[0][3]);
-                     }
-                 }
-        */
     }
     else if (eixo == 2)
     {
         struct Toco caminhaoToco;
 
         printf("Digite a placa do caminhão: ");
-        scanf("%d", &caminhaoToco.placa);
+        scanf("%s", caminhaoToco.placa);
 
         printf("Digite o numero do pneu dianteiro esquerdo: ");
         scanf("%d", &caminhaoToco.pneus[0][0]);
@@ -186,9 +179,48 @@ int main()
 
         system("cls || clear");
     }
+    else if (eixo == 3)
+    {
+        struct Carreta carreta;
+
+        printf("Digite a placa da carreta: ");
+        scanf("%s", carreta.placa);
+
+        printf("Digite o numero do pneu traseiro externo esquerdo 1: ");
+        scanf("%d", &carreta.pneus[0][0]);
+        printf("Digite o numero do pneu traseiro interno esquerdo 1: ");
+        scanf("%d", &carreta.pneus[0][1]);
+
+        printf("Digite o numero do pneu traseiro interno direito 1: ");
+        scanf("%d", &carreta.pneus[0][2]);
+        printf("Digite o numero do pneu traseiro externo direito 1: ");
+        scanf("%d", &carreta.pneus[0][3]);
+
+        printf("Digite o numero do pneu traseiro externo esquerdo 2: ");
+        scanf("%d", &carreta.pneus[1][0]);
+        printf("Digite o numero do pneu traseiro interno esquerdo 2: ");
+        scanf("%d", &carreta.pneus[1][1]);
+
+        printf("Digite o numero do pneu traseiro interno direito 2: ");
+        scanf("%d", &carreta.pneus[1][2]);
+        printf("Digite o numero do pneu traseiro externo direito 2: ");
+        scanf("%d", &carreta.pneus[1][3]);
+
+        printf("Digite o numero do pneu traseiro externo esquerdo 3: ");
+        scanf("%d", &carreta.pneus[2][0]);
+        printf("Digite o numero do pneu traseiro interno esquerdo 3: ");
+        scanf("%d", &carreta.pneus[2][1]);
+
+        printf("Digite o numero do pneu traseiro interno direito 3: ");
+        scanf("%d", &carreta.pneus[2][2]);
+        printf("Digite o numero do pneu traseiro externo direito 3: ");
+        scanf("%d", &carreta.pneus[2][3]);
+
+        system("cls || clear");
+    }
 
     int menu;
-
+    // sistema de menu
     do
     {
 
@@ -200,13 +232,14 @@ int main()
         scanf("%d", &menu);
         system("cls || clear");
 
-        if (menu == 1) // Para verificar qual opção de caminhão foi escolhida
+        if (menu == 1)
         {
             if (eixo == 1) // Se for truck ele entra nesse if
             {
                 struct Truck trucado;
 
                 printf("Listagem dos pneus: \n");
+                printf("============Frente=============\n");
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -223,12 +256,14 @@ int main()
                     }
                     printf("\n");
                 }
+                printf("==========={%7s}===========\n", trucado.placa); // Imprime a placa do caminhão.
             }
             else if (eixo == 2) // Mesma lógica do anterior, só que para opção Toco.
             {
                 struct Toco caminhaoToco;
 
                 printf("\nListagem dos pneus: \n");
+                printf("============Frente=============\n");
 
                 for (int i = 0; i < 2; i++)
                 {
@@ -245,6 +280,24 @@ int main()
                     }
                     printf("\n");
                 }
+                printf("==========={%7s}===========\n", caminhaoToco.placa);
+            }
+            else if (eixo == 3) // Mesma lógica do anterior, só que para opção Carreta.
+            {
+                struct Carreta carreta;
+
+                printf("\nListagem dos pneus: \n");
+                printf("============Frente=============\n");
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        printf("[%5d] ", carreta.pneus[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("==========={%7s}===========\n", carreta.placa);
             }
         }
 
