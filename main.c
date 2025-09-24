@@ -304,14 +304,6 @@ int main()
                 printf("==========={%7s}===========\n", carreta.placa);
             }
         }
-        else if (menu == 2)
-        {
-            printf("Funcao de rodizio de pneus ainda nao implementada.\n");
-
-            printf("Insira o numero do pneu que deseja trocar: ");
-            int pneu1, pneu2;
-            scanf("%d %d", &pneu1, &pneu2);
-        }
         else if (menu == 3)
         {
             printf("Legenda das posicoes dos pneus:\n");
