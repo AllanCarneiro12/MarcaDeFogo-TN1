@@ -117,7 +117,7 @@ int main()
             break;
         default:
             system("cls || clear");
-            printf("Eixo invalido.\n");
+            printf("ERRO: Eixo invalido.\n");
             break;
         }
     } while (eixo < 1 || eixo > 3);
@@ -315,7 +315,8 @@ int main()
                 scanf("%d", &pneu1);
                 printf("Digite o segundo pneu a trocar: ");
                 scanf("%d", &pneu2);
-
+                system("cls || clear");
+                
                 // Pegar as posicoes dos pneus
                 for (int i = 0; i < 3; i++)
                 {
@@ -332,7 +333,6 @@ int main()
                             j2 = j;
                         }
                     }
-                    printf("\n");
                 }
                 // verifica se as posicoes existem e troca de lugar
                 if (i1 != -1 && i2 != -1)
@@ -342,23 +342,33 @@ int main()
                     trucado.pneus[i2][j2] = temp;
 
                     // mostra os pneus após a troca
-                    printf("Mostrar pneus após a troca:\n");
+                    printf("Disposicao dos pneus apos a troca:\n");
+                    printf("============Frente=============\n");
+
                     for (int i = 0; i < 3; i++)
                     {
-                        for (int j = 0; j < 4; j++)
+                        for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
                         {
-                            printf("%d\t", trucado.pneus[i][j]);
+                            if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
+                            {                                            //  caminhão truck há duas posições na dianteira vazias.
+                                printf("[%5d] ", trucado.pneus[i][j]);
+                            }
+                            else
+                            {
+                                printf("[-----] "); // Imprimindo as posições vazias.
+                            }
                         }
                         printf("\n");
                     }
+                    printf("==========={%7s}===========\n", trucado.placa); // Imprime a placa do caminhão.
                 }
                 else
                 {
-                    printf("Pneus não encontrados!");
+                    printf("ERRO: Pneus nao encontrados!\n");
                 }
             }
         }
-        else if (menu == 3)
+        else if (menu == 3) // possivelmente desnecessário, possibilidade de remoção da opção
         {
             printf("Legenda das posicoes dos pneus:\n");
             if (eixo == 1)
@@ -392,7 +402,7 @@ int main()
         }
         else
         {
-            printf("Opicao invalida. Tente novamente.\n");
+            printf("ERRO: Opcao invalida. Tente novamente.\n");
         }
 
     } while (menu != 0);
