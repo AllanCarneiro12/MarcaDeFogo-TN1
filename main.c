@@ -303,7 +303,7 @@ int main()
         else if(menu == 2) //para o rodizio de pneus
         {
            int pneu1, pneu2;//valores de pneus a serem trocados
-           int i1=-1, j1=-1, i2=-1, j2 = -1 //o -1 verifica se os valores exitem na matriz
+           int i1=-1, j1=-1, i2=-1, j2 = -1; //o -1 verifica se os valores exitem na matriz
          if (eixo == 1) // Se for truck ele entra nesse if
             {
                 struct Truck trucado;
@@ -340,9 +340,9 @@ int main()
                 
                 //mostra os pneus após a troca
                 printf("Mostrar pneus após a troca:\n");
-                for(i=0; i<3; i++)
+                for(int i=0; i<3; i++)
                 {
-                    for(j=0; j<4; j++)
+                    for(int j=0; j<4; j++)
                     {
                         printf("%d\t",trucado.pneus[i][j]);
                     }
