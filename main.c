@@ -126,34 +126,78 @@ int main()
     if (eixo == 1)
     {
         struct Truck trucado;
-        trucado.pneus[0][1] = 0; // posições sem pneus
-        trucado.pneus[0][2] = 0; // posições sem pneus
+
+        // Zera matriz de pneus
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                trucado.pneus[i][j] = 0;
+            }
+        }
 
         printf("\nDigite a placa do caminhao:");
         scanf("%s", trucado.placa);
+        system("cls || clear");
 
-        printf("Digite o numero do pneu dianteiro esquerdo:");
-        scanf("%d", &trucado.pneus[0][0]);
-        printf("Digite o numero do pneu dianteiro direito:");
-        scanf("%d", &trucado.pneus[0][3]);
+        int numeroPneu = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+            {
+                if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
+                {                                            //  caminhão truck há duas posições na dianteira vazias.
+                // printf("[%5d] ", trucado.pneus[i][j]);
+                repetirTrucado:
+                    printf("============Frente=============\n");
+                    printf("[ 0,0 ] [-----] [-----] [ 0,3 ]\n");
+                    printf("[ 1,0 ] [ 1,1 ] [ 1,2 ] [ 1,3 ]\n");
+                    printf("[ 2,0 ] [ 2,1 ] [ 2,2 ] [ 2,3 ]\n");
+                    printf("==========={ PLACA }===========\n");
+                    printf("Digite o numero do pneu [ %d,%d ]: ", i, j);
+                    scanf("%d", &numeroPneu);
 
-        printf("Digite o numero do pneu traseiro externo esquerdo 1:");
-        scanf("%d", &trucado.pneus[1][0]);
-        printf("Digite o numero do pneu traseiro interno esquerdo 1:");
-        scanf("%d", &trucado.pneus[1][1]);
-        printf("Digite o numero do pneu traseiro interno direito 1:");
-        scanf("%d", &trucado.pneus[1][2]);
-        printf("Digite o numero do pneu traseiro externo direito 1:");
-        scanf("%d", &trucado.pneus[1][3]);
+                    for (int k = 0; k < 3; k++)
+                    {
+                        for (int l = 0; l < 4; l++)
+                        {
+                            if (trucado.pneus[k][l] == numeroPneu)
+                            {
+                                system("cls || clear");
+                                printf("ERRO: Numero de pneu ja cadastrado. Digite outro numero.\n");
+                                goto repetirTrucado; // Usando goto para repetir a entrada do pneu
+                            }
+                        }
+                    }
+                    system("cls || clear");
+                    trucado.pneus[i][j] = numeroPneu;
+                }
+            }
+            // printf("\n");
+        }
 
-        printf("Digite o numero do pneu traseiro externo esquerdo 2:");
-        scanf("%d", &trucado.pneus[2][0]);
-        printf("Digite o numero do pneu traseiro interno esquerdo 2:");
-        scanf("%d", &trucado.pneus[2][1]);
-        printf("Digite o numero do pneu traseiro interno direito 2:");
-        scanf("%d", &trucado.pneus[2][2]);
-        printf("Digite o numero do pneu traseiro externo direito 2:");
-        scanf("%d", &trucado.pneus[2][3]);
+        // printf("Digite o numero do pneu dianteiro esquerdo:");
+        // scanf("%d", &trucado.pneus[0][0]);
+        // printf("Digite o numero do pneu dianteiro direito:");
+        // scanf("%d", &trucado.pneus[0][3]);
+
+        // printf("Digite o numero do pneu traseiro externo esquerdo 1:");
+        // scanf("%d", &trucado.pneus[1][0]);
+        // printf("Digite o numero do pneu traseiro interno esquerdo 1:");
+        // scanf("%d", &trucado.pneus[1][1]);
+        // printf("Digite o numero do pneu traseiro interno direito 1:");
+        // scanf("%d", &trucado.pneus[1][2]);
+        // printf("Digite o numero do pneu traseiro externo direito 1:");
+        // scanf("%d", &trucado.pneus[1][3]);
+
+        // printf("Digite o numero do pneu traseiro externo esquerdo 2:");
+        // scanf("%d", &trucado.pneus[2][0]);
+        // printf("Digite o numero do pneu traseiro interno esquerdo 2:");
+        // scanf("%d", &trucado.pneus[2][1]);
+        // printf("Digite o numero do pneu traseiro interno direito 2:");
+        // scanf("%d", &trucado.pneus[2][2]);
+        // printf("Digite o numero do pneu traseiro externo direito 2:");
+        // scanf("%d", &trucado.pneus[2][3]);
 
         system("cls || clear");
     }
