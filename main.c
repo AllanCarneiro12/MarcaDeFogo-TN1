@@ -405,7 +405,7 @@ int main()
                     }
                 }
                 //  verifica se as posicoes existem e troca de lugar
-                if (i1 != -1 && i2 != -1)
+                if (i1 != -1 && i2 != -1 && (pneu1 > 0 && pneu2 > 0))
                 {
                     int temp = trucado.pneus[i1][j1];
                     trucado.pneus[i1][j1] = trucado.pneus[i2][j2];
@@ -465,7 +465,7 @@ int main()
                     }
                 }
                 // verifica se as posicoes existem e troca de lugar
-                if (i1 != -1 && i2 != -1)
+                if (i1 != -1 && i2 != -1 && (pneu1 > 0 && pneu2 > 0))
                 {
                     int temp = caminhaoToco.pneus[i1][j1];
                     caminhaoToco.pneus[i1][j1] = caminhaoToco.pneus[i2][j2];
@@ -524,7 +524,7 @@ int main()
                     }
                 }
                 // verifica se as posicoes existem e troca de lugar
-                if (i1 != -1 && i2 != -1)
+                if (i1 != -1 && i2 != -1 && (pneu1 > 0 && pneu2 > 0))
                 {
                     int temp = carreta.pneus[i1][j1];
                     carreta.pneus[i1][j1] = carreta.pneus[i2][j2];
