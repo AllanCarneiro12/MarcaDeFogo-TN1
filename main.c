@@ -143,7 +143,7 @@ int main()
         int numeroPneu = 0;
         for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+            for (int j = 0; j < 4; j++)
             {
                 if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
                 {                                            //  caminhão truck há duas posições na dianteira vazias.
@@ -201,7 +201,7 @@ int main()
         int numeroPneu = 0;
         for (int i = 0; i < 2; i++)
         {
-            for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+            for (int j = 0; j < 4; j++)
             {
                 if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
                 {                                            //  caminhão truck há duas posições na dianteira vazias.
@@ -258,7 +258,7 @@ int main()
         int numeroPneu = 0;
         for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+            for (int j = 0; j < 4; j++)
             {
             repetirCarreta:
                 printf("============Frente=============\n");
@@ -294,11 +294,10 @@ int main()
         system("cls || clear");
     }
 
-    int menu;
     // sistema de menu
+    int menu;
     do
     {
-
         printf("Menu:\n");
         printf("1. Mostrar pneus\n");
         printf("2. Rodizio de pneus\n");
@@ -319,7 +318,7 @@ int main()
 
                 for (int i = 0; i < 3; i++)
                 {
-                    for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+                    for (int j = 0; j < 4; j++)
                     {
                         if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
                         {                                            //  caminhão truck há duas posições na dianteira vazias.
@@ -381,6 +380,25 @@ int main()
             if (eixo == 1)                          // Se for truck ele entra nesse if
             {
                 struct Truck trucado;
+
+                printf("============Frente=============\n");
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
+                        {                                            //  caminhão truck há duas posições na dianteira vazias.
+                            printf("[%5d] ", trucado.pneus[i][j]);
+                        }
+                        else
+                        {
+                            printf("[-----] "); // Imprimindo as posições vazias.
+                        }
+                    }
+                    printf("\n");
+                }
+                printf("==========={%7s}===========\n", trucado.placa); // Imprime a placa do caminhão.
+
                 printf("Digite o primeiro pneu a trocar: ");
                 scanf("%d", &pneu1);
                 printf("Digite o segundo pneu a trocar: ");
@@ -417,7 +435,7 @@ int main()
 
                     for (int i = 0; i < 3; i++)
                     {
-                        for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+                        for (int j = 0; j < 4; j++)
                         {
                             if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
                             {                                            //  caminhão truck há duas posições na dianteira vazias.
@@ -439,8 +457,26 @@ int main()
             }
             else if (eixo == 2)
             {
-
                 struct Toco caminhaoToco;
+
+                printf("============Frente=============\n");
+                for (int i = 0; i < 2; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
+                        {                                            //  caminhão truck há duas posições na dianteira vazias.
+                            printf("[%5d] ", caminhaoToco.pneus[i][j]);
+                        }
+                        else
+                        {
+                            printf("[-----] "); // Imprimindo as posições vazias.
+                        }
+                    }
+                    printf("\n");
+                }
+                printf("==========={%7s}===========\n", caminhaoToco.placa); // Imprime a placa do caminhão.
+
                 printf("Digite o primeiro pneu a trocar: ");
                 scanf("%d", &pneu1);
                 printf("Digite o segundo pneu a trocar: ");
@@ -477,7 +513,7 @@ int main()
 
                     for (int i = 0; i < 2; i++)
                     {
-                        for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
+                        for (int j = 0; j < 4; j++)
                         {
                             if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
                             {                                            //  caminhão truck há duas posições na dianteira vazias.
@@ -500,6 +536,19 @@ int main()
             else if (eixo == 3)
             {
                 struct Carreta carreta;
+
+                printf("============Frente=============\n");
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        printf("[%5d] ", carreta.pneus[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("==========={%7s}===========\n", carreta.placa); // Imprime a placa do caminhão.
+
                 printf("Digite o primeiro pneu a trocar: ");
                 scanf("%d", &pneu1);
                 printf("Digite o segundo pneu a trocar: ");
@@ -555,7 +604,6 @@ int main()
             printf("Legenda das posicoes dos pneus:\n");
             if (eixo == 1)
             {
-                // struct Truck trucado;
                 printf("============Frente=============\n");
                 printf("[ 0,0 ] [-----] [-----] [ 0,3 ]\n");
                 printf("[ 1,0 ] [ 1,1 ] [ 1,2 ] [ 1,3 ]\n");
