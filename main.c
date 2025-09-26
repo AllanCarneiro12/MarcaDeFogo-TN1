@@ -161,7 +161,13 @@ int main()
                     {
                         for (int l = 0; l < 4; l++)
                         {
-                            if (trucado.pneus[k][l] == numeroPneu)
+                            if (numeroPneu <= 0)
+                            {
+                                system("cls || clear");
+                                printf("ERRO: Numero de pneu invalido. Digite um numero maior que zero.\n");
+                                goto repetirTrucado; // Usando goto para repetir a entrada do pneu
+                            }
+                            else if (trucado.pneus[k][l] == numeroPneu)
                             {
                                 system("cls || clear");
                                 printf("ERRO: Numero de pneu ja cadastrado. Digite outro numero.\n");
