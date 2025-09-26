@@ -100,7 +100,7 @@ int main()
     {
         printf("\nQual eixo sera? \n 1)TRUCK\n 2)TOCO \n 3)CARRETA\n");
         scanf("%d", &eixo);
-    
+
         switch (eixo)
         {
         case 1:
@@ -245,7 +245,6 @@ int main()
             {
                 struct Truck trucado;
 
-                printf("Listagem dos pneus: \n");
                 printf("============Frente=============\n");
 
                 for (int i = 0; i < 3; i++)
@@ -269,7 +268,6 @@ int main()
             {
                 struct Toco caminhaoToco;
 
-                printf("\nListagem dos pneus: \n");
                 printf("============Frente=============\n");
 
                 for (int i = 0; i < 2; i++)
@@ -293,7 +291,6 @@ int main()
             {
                 struct Carreta carreta;
 
-                printf("\nListagem dos pneus: \n");
                 printf("============Frente=============\n");
 
                 for (int i = 0; i < 3; i++)
@@ -307,19 +304,19 @@ int main()
                 printf("==========={%7s}===========\n", carreta.placa);
             }
         }
-        else if  (menu == 2) //  para o rodizio de pneus
+        else if (menu == 2) //  para o rodizio de pneus
         {
             int pneu1, pneu2;                       // valores de pneus a serem trocados
             int i1 = -1, j1 = -1, i2 = -1, j2 = -1; // o -1 verifica se os valores exitem na matriz
             if (eixo == 1)                          // Se for truck ele entra nesse if
             {
                 struct Truck trucado;
-                printf("\nDigite o primeiro pneu a trocar: ");
+                printf("Digite o primeiro pneu a trocar: ");
                 scanf("%d", &pneu1);
                 printf("Digite o segundo pneu a trocar: ");
                 scanf("%d", &pneu2);
                 system("cls || clear");
-                
+
                 // Pegar as posicoes dos pneus
                 for (int i = 0; i < 3; i++)
                 {
@@ -336,53 +333,49 @@ int main()
                             j2 = j;
                         }
                     }
-                    printf("\n");
                 }
                 //  verifica se as posicoes existem e troca de lugar
-                if  (i1 != -1 && i2 != -1)
+                if (i1 != -1 && i2 != -1)
                 {
                     int temp = trucado.pneus[i1][j1];
                     trucado.pneus[i1][j1] = trucado.pneus[i2][j2];
                     trucado.pneus[i2][j2] = temp;
 
                     // mostra os pneus após a troca
-                    printf("Mostrar pneus após a troca:\n");
+                    printf("Disposicao dos pneus apos a troca:\n");
+                    printf("============Frente=============\n");
+
                     for (int i = 0; i < 3; i++)
                     {
-                        for (int j = 0; j < 4; j++)
+                        for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
                         {
-                            printf("%d\t", trucado.pneus[i][j]);
+                            if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
+                            {                                            //  caminhão truck há duas posições na dianteira vazias.
+                                printf("[%5d] ", trucado.pneus[i][j]);
+                            }
+                            else
+                            {
+                                printf("[-----] "); // Imprimindo as posições vazias.
+                            }
                         }
                         printf("\n");
                     }
+                    printf("==========={%7s}===========\n", trucado.placa); // Imprime a placa do caminhão.
                 }
                 else
                 {
-                    printf("Pneus não encontrados!");
-                }
-                int temp = trucado.pneus[i1][j1];
-                trucado.pneus[i1][j1] = trucado.pneus[i2][j2];
-                trucado.pneus[i2][j2] = temp;
-
-                // mostra os pneus após a troca
-                printf("Mostrar pneus após a troca:\n");
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                        printf("%d\t", trucado.pneus[i][j]);
-                    }
-                    printf("\n");
+                    printf("ERRO: Pneus nao encontrados!\n");
                 }
             }
             else if (eixo == 2)
             {
 
                 struct Toco caminhaoToco;
-                printf("\nDigite o primeiro pneu a trocar: ");
+                printf("Digite o primeiro pneu a trocar: ");
                 scanf("%d", &pneu1);
                 printf("Digite o segundo pneu a trocar: ");
                 scanf("%d", &pneu2);
+                system("cls || clear");
 
                 // Pegar as posicoes dos pneus
                 for (int i = 0; i < 2; i++)
@@ -400,7 +393,6 @@ int main()
                             j2 = j;
                         }
                     }
-                    printf("\n");
                 }
                 // verifica se as posicoes existem e troca de lugar
                 if (i1 != -1 && i2 != -1)
@@ -410,27 +402,42 @@ int main()
                     caminhaoToco.pneus[i2][j2] = temp;
 
                     // mostra os pneus após a troca
-                    printf("Mostrar pneus após a troca:\n");
+                    printf("Disposicao dos pneus apos a troca:\n");
+                    printf("============Frente=============\n");
+
                     for (int i = 0; i < 2; i++)
                     {
-                        for (int j = 0; j < 4; j++)
+                        for (int j = 0; j < 4; j++) // Laço para percorrer as linhas e colunas.
                         {
-                            printf("%d\t", caminhaoToco.pneus[i][j]);
+                            if ((i == 0 && (j == 0 || j == 3)) || i > 0) // Verifica quais posições estão preenchidas, já que no
+                            {                                            //  caminhão truck há duas posições na dianteira vazias.
+                                printf("[%5d] ", caminhaoToco.pneus[i][j]);
+                            }
+                            else
+                            {
+                                printf("[-----] "); // Imprimindo as posições vazias.
+                            }
                         }
                         printf("\n");
                     }
+                    printf("==========={%7s}===========\n", caminhaoToco.placa); // Imprime a placa do caminhão.
+                }
+                else
+                {
+                    printf("ERRO: Pneus nao encontrados!\n");
                 }
             }
             else if (eixo == 3)
             {
                 struct Carreta carreta;
-                printf("\nDigite o primeiro pneu a trocar: ");
+                printf("Digite o primeiro pneu a trocar: ");
                 scanf("%d", &pneu1);
                 printf("Digite o segundo pneu a trocar: ");
                 scanf("%d", &pneu2);
+                system("cls || clear");
 
                 // Pegar as posicoes dos pneus
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     for (int j = 0; j < 4; j++)
                     {
@@ -445,7 +452,6 @@ int main()
                             j2 = j;
                         }
                     }
-                    printf("\n");
                 }
                 // verifica se as posicoes existem e troca de lugar
                 if (i1 != -1 && i2 != -1)
@@ -455,21 +461,60 @@ int main()
                     carreta.pneus[i2][j2] = temp;
 
                     // mostra os pneus após a troca
-                    printf("Mostrar pneus após a troca:\n");
-                    for (int i = 0; i < 2; i++)
+                    printf("Disposicao dos pneus apos a troca:\n");
+                    printf("============Frente=============\n");
+
+                    for (int i = 0; i < 3; i++)
                     {
                         for (int j = 0; j < 4; j++)
                         {
-                            printf("%d\t", carreta.pneus[i][j]);
+                            printf("[%5d] ", carreta.pneus[i][j]);
                         }
                         printf("\n");
                     }
+                    printf("==========={%7s}===========\n", carreta.placa); // Imprime a placa do caminhão.
                 }
                 else
                 {
-                    printf("Pneus não encontrados!\n");
+                    printf("ERRO: Pneus nao encontrados!\n");
                 }
             }
+        }
+        else if (menu == 3) // possivelmente desnecessário, possibilidade de remoção da opção
+        {
+            printf("Legenda das posicoes dos pneus:\n");
+            if (eixo == 1)
+            {
+                // struct Truck trucado;
+                printf("============Frente=============\n");
+                printf("[ 0,0 ] [-----] [-----] [ 0,3 ]\n");
+                printf("[ 1,0 ] [ 1,1 ] [ 1,2 ] [ 1,3 ]\n");
+                printf("[ 2,0 ] [ 2,1 ] [ 2,2 ] [ 2,3 ]\n");
+                printf("==========={ PLACA }===========\n");
+            }
+            else if (eixo == 2)
+            {
+                printf("============Frente=============\n");
+                printf("[ 0,0 ] [-----] [-----] [ 0,3 ]\n");
+                printf("[ 1,0 ] [ 1,1 ] [ 1,2 ] [ 1,3 ]\n");
+                printf("==========={ PLACA }===========\n");
+            }
+            else if (eixo == 3)
+            {
+                printf("============Frente=============\n");
+                printf("[ 0,0 ] [ 0,1 ] [ 0,2 ] [ 0,3 ]\n");
+                printf("[ 1,0 ] [ 1,1 ] [ 1,2 ] [ 1,3 ]\n");
+                printf("[ 2,0 ] [ 2,1 ] [ 2,2 ] [ 2,3 ]\n");
+                printf("==========={ PLACA }===========\n");
+            }
+        }
+        else if (menu == 0)
+        {
+            printf("Saindo do sistema...\n");
+        }
+        else
+        {
+            printf("ERRO: Opcao invalida. Tente novamente.\n");
         }
     } while (menu != 0);
 
